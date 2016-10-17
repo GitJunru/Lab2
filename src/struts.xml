@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	
+<struts>
+    <include file="struts-default.xml"/>
+    <package name="BOOK" extends="struts-default">
+	     <action name="find-book" class="action.BookDB" method="find">
+	      	<result name="SUCCESS">/WEB-INF/pages/list.jsp</result>
+	      	<result name="NOPERSON">/WEB-INF/pages/no-person.jsp</result>
+	     </action>
+	     <action name="add" >
+	      	<result>/WEB-INF/pages/add.jsp</result>
+	     </action>
+	     <action name="add-new" class="action.AddNew" method ="addnew">
+	      	<result name="SUCCESS">index.jsp</result>
+	      	<result name="EMPTY">/WEB-INF/pages/addAuthor.jsp</result>
+	     </action>
+	     <action name="add-author" class="action.AddNew" method ="addAuthor">
+	      	<result name="SUCCESS">index.jsp</result>
+	     </action>
+	     <action name="book-detail" class="action.BookDB" method="detail">
+	      	<result name="SUCCESS">/WEB-INF/pages/detail.jsp</result>
+	     </action>
+	     
+	     <action name="delete-book" class="action.BookDB" method="delete">
+	      	<result name="SUCCESS">index.jsp</result>
+	     </action>
+	     <action name="edit-prepare" class="action.BookEdit" method="editPre">
+	      	<result name="SUCCESS">/WEB-INF/pages/Editing.jsp</result>
+	     </action>
+	     <action name="edit-book" class="action.BookEdit" method="edit">
+	      	<result name="SUCCESS">/WEB-INF/pages/edit-finish.jsp</result>
+	     </action>
+    </package>
+</struts>
